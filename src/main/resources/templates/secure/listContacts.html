@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Contact</title>
+    <link rel="stylesheet" href="../css.css">
+</head>
+<body>
+<h1>List Contact</h1>
+<header>
+    <a href="/">Home</a> |
+    <a href="/secure/addContact"> Add Contact</a> |
+    <a href="/secure/listContacts"> List Contacts</a> |
+    <a href="/register"> Register User</a> |
+</header>
+<br>
+
+<table th:if="${contactList!=null and contactList!=''}">
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+    </tr>
+    <tr th:each="c :${contactList}">
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.phoneNumber}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.email}"></td>
+        <td th:text="${c.role}"></td>
+        <td><a th:href="@{/editContactById/} +${c.id}">Edit</a> </td>
+        <td><a th:href="@{/deleteContactById/} +${c.id}">Delete</a> </td>
+    </tr>
+</table>
+<br>
+<footer>Copyrights by Hieu Vu All rights reserved</footer>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<h1> Please enter your login credentials!</h1>
+<form method="post" th:action="@{/login}">
+    UserName : <input type="text" name="username"><br>
+    Password : <input type="password" name="password"><br>
+    <input type="submit" name="loginBtn" value="Login">
+    <div th:if="${param.error}">
+        <div class="error">
+            Invalid username or password
+        </div>
+    </div>
+    <div th:if="${param.logout}">
+        <div class="error">
+            You have been logged out!
+        </div>
+    </div>
+
+</form>
+<br>
+<a href="/"><button>Back to home</button></a>
+
+</body>
+
+</html>

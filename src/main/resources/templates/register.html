@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleag.org/theymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/script.js}"></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<h1>Register User</h1>
+<header>
+    <a href="/">Home</a> |
+    <a href="/secure/addContact"> Add Contact</a> |
+    <a href="/secure/listContacts"> List Contacts</a> |
+    <a href="/register"> Register User</a> |
+</header>
+<img src="user.png">
+<br>
+<div id="error" class="error"></div>
+<form name="form" method="post" th:action="@{/register}" onsubmit="return verify()">
+    Email: <input type="email" name="username"/><br>
+    Password: <input type="password" name="password"/><br>
+    Verify Password: <input type="password" name="verifyPassword"/><br>
+    Role: <br>
+    <input id="admin" type="checkbox" name="roles" value='1'>
+    <label for="admin" >ADMIN</label><br>
+    <input id="guest" type="checkbox" name="roles" value='3'>
+    <label for="guest" >GUEST</label><br>
+    <input id="member" type="checkbox" name="roles" value='2'>
+    <label for="member" >MEMBER</label><br>
+    </input><br>
+    <input type="submit" value="Go">
+</form>
+<br>
+<footer>Copyrights by Hieu Vu All rights reserved</footer>
+</body>
+</html>
